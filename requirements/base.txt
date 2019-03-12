@@ -1,0 +1,18 @@
+# Core
+pytz==2018.9
+Django==2.1.7
+django-configurations==2.1
+
+# For the persistence stores
+dj-database-url==0.5.0
+
+# Model Tools
+
+
+# Rest apis
+djangorestframework==3.9.1
+django-cors-headers==2.5.0
+django-filter==2.1.0
+djangorestframework-jwt==1.11.0
+django-rest-auth==0.9.3
+
