@@ -6,8 +6,8 @@ https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/gunicorn/
 """
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mummyrest.config.local")
-os.environ.setdefault("DJANGO_CONFIGURATION", "local")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mummyrest.config.local')
+os.environ.setdefault('DJANGO_CONFIGURATION', 'local')
 
 from configurations.wsgi import get_wsgi_application  # noqa
 application = get_wsgi_application()

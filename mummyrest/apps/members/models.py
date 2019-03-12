@@ -71,3 +71,11 @@ class Member(AbstractBaseUser):
     @property
     def max_weeks_without_money(self):
         return math.floor((1 - self.innocence) * self.experience * self.charisma * 10)
+
+
+class Week(models.Model):
+    new_members = models.PositiveIntegerField(default=0)
+    leave_members = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        db_table = 'week'

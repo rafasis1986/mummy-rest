@@ -1,8 +1,9 @@
-from distutils.util import strtobool
 import os
 from os.path import join
 
 from configurations import Configuration
+from distutils.util import strtobool
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -36,7 +37,7 @@ class Common(Configuration):
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     )
 
-    ALLOWED_HOSTS = ["*"]
+    ALLOWED_HOSTS = ['*']
     ROOT_URLCONF = 'mummyrest.urls'
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'L0C4L_K€\/')
     WSGI_APPLICATION = 'mummyrest.wsgi.application'
@@ -57,15 +58,12 @@ class Common(Configuration):
     APPEND_SLASH = False
     TIME_ZONE = 'UTC'
     LANGUAGE_CODE = 'en-us'
-    # If you set this to False, Django will make some optimizations so as not
-    # to load the internationalization machinery.
+
     USE_I18N = False
     USE_L10N = True
     USE_TZ = True
     LOGIN_REDIRECT_URL = '/'
 
-    # Static files (CSS, JavaScript, Images)
-    # https://docs.djangoproject.com/en/2.0/howto/static-files/
     STATIC_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), 'static'))
     STATICFILES_DIRS = []
     STATIC_URL = '/static/'
@@ -98,8 +96,6 @@ class Common(Configuration):
     # https://docs.djangoproject.com/en/dev/ref/settings/#debug
     DEBUG = strtobool(os.getenv('DJANGO_DEBUG', 'no'))
 
-
-    # Logging
     LOGGING = {
         'version': 1,
         'disable_existing_loggers': False,
