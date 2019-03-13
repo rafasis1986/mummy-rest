@@ -2,16 +2,20 @@
 
 from django.db import migrations
 from mummyrest.apps.utils import constants as const
+from mummyrest.apps.members import models
 from mummyrest.apps.members.snippets import init_member_args
-from mummyrest.apps.members.models import Member
 
 
 def insert_first_users(apps, schema):
 
-    mummy = Member()
+    week = models.Week.objects.create(
+        id=const.DEFAULT_FIRST_WEEK,
+        new_members=const.INITIAL_INVESTORS,
+        population=const.INITIAL_INVESTORS)
+
+    mummy = models.Member()
     mummy.is_staff = True
     mummy.is_superuser = True
-    mummy.start_week = const.DEFAULT_FIRST_WEEK
     mummy.set_password(const.DEFAULT_PASWORD_ADMIN)
     mummy.save()
 
@@ -20,9 +24,9 @@ def insert_first_users(apps, schema):
     while len(investors) < const.INITIAL_INVESTORS + 1:
         investors.append(
             init_member_args(
-                Member(), mummy, const.DEFAULT_FIRST_WEEK))
+                models.Member(), mummy, week))
 
-    Member.objects.bulk_create(investors)
+    models.Member.objects.bulk_create(investors)
 
 
 class Migration(migrations.Migration):
