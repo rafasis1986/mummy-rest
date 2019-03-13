@@ -21,3 +21,7 @@ def db_is_avaliable():
 
 def blocked_db():
     return cache.set('BLOK_DB', True)
+
+def chunks(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]

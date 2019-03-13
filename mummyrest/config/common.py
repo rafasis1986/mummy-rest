@@ -54,6 +54,12 @@ class Common(Configuration):
         }
     }
 
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    }
+
     # General
     APPEND_SLASH = False
     TIME_ZONE = 'UTC'
@@ -171,3 +177,16 @@ class Common(Configuration):
             'rest_framework.filters.SearchFilter',
         )
     }
+
+    # Celery
+    CELERY_TASK_ALWAYS_EAGER = False
+    CELERY_TASK_EAGER_PROPAGATES = False
+    if USE_TZ:
+        CELERY_TIMEZONE = TIME_ZONE
+    CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
+    CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+    CELERY_ACCEPT_CONTENT = ['json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_IMPORTS = ("mummyrest.apps.simulations.celery")
+    CELERY_IGNORE_RESULT = True
