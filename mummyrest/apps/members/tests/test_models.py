@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-'''
-Created on Sep 14, 2017
-
-@author: rtorres
-'''
-from test_plus.test import TestCase
-from apps.indicators.tests.factories import UFFactory
 import datetime
 
 

@@ -1,0 +1,7 @@
+# General
+USE_DOCKER=yes
+DJANGO_SECRET_KEY=local
+
+# CELERY
+REDIS_URL=
+

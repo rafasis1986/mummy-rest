@@ -17,5 +17,5 @@ django-rest-auth==0.9.3
 
 # celery
 celery==4.2.1
-django-celery-beat-1.4.0
+django-celery-beat==1.5.0
 numpy==1.16

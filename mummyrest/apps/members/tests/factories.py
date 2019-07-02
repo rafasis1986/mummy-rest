@@ -1,12 +1,7 @@
-# -*- coding: utf-8 -*-
-'''
-Created on Sep 14, 2017
+import datetime
 
-@author: rtorres
-'''
 import factory
 from factory.fuzzy import FuzzyDecimal, FuzzyDate
-import datetime
 
 
 class MemberFactory(factory.django.DjangoModelFactory):
